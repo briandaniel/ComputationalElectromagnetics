@@ -1,0 +1,25 @@
+# Settings for 3D TDDFT Theory
+
+[Domain]
+tf_im =								30
+Nt_im =								800
+
+tf_re =								30
+Nt_re =								800
+
+Lx =								12.4407							
+Ly =								12.4407
+Lz =								12.4407
+Nx =								30									
+Ny =								30
+Nz =								30
+
+boundary =							zero
+
+
+[Equations]
+alpha =								1e-2
+beta =								1
+
+[Other]
+frames =							200

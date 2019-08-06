@@ -1,0 +1,105 @@
+# Settings for 1D FDTD simulation.
+
+[Domain]
+Ne = 4
+Nion = 4
+Ngrid = 128
+Nem = 15
+
+# Use given step size (stepType = 1) or 
+# total time length to determine step size (stepType = 2)? 
+stepType = 1
+
+imaginary_tSteps = 5000
+imaginary_tLength = 5e-15
+imag_tStep = 1e-18
+
+real_tSteps = 50000
+real_tLength = 10e-15
+real_tStep = 1e-18
+
+zMin = 0e-9
+zMax = 1.2e-9
+surfPos = .4e-9
+fieldCoef = 1e7
+
+[Ground]
+# Ground Ions? Write "1" = yes or "0" = no:
+groundIons = 1
+
+# If no, use "equalSpacing" or read from ground "file"? 
+readFile = file
+
+groundFile = ground
+initialDistance = .7e-10
+variation = .1e-10
+imaginaryTolerance = 1e-8
+yTol = 1e-16
+maxEvals = 100
+# Make ground video? Write "1" = yes or "0" = no:
+groundVideo = 1
+
+[Parameters]
+gamma = .5e-10
+
+[Schrodinger]
+# Time evolution? Write "1" = yes or "0" = no:
+evolve = 1
+eeCoef = 0
+
+# Vxc Correlation Potential
+# Options are "rho", "rho1/3", "none" 
+Vxc = rho
+VxcConstant = 2e-18
+#VxcConstant = 0
+
+# Boundary Condition; "zero", "pml"
+boundary = zero
+
+# Pseudopotential; "exp", no pseudo: "none"
+pseudo = none
+charge = 1
+coreRadius = .5e-10
+coreEffect = .8
+[Newton]
+# Evolve Ions? Write "1" = yes or "0" = no:
+evolve = 1
+Zn = 2
+Mion = 6
+
+[Maxwell]
+# Evolve Maxwell? Write "1" = yes or "0" = no:
+evolve = 0
+pmlPoints = 20
+
+# Input pulse
+# options: modulatedGauss, sech, CW, gauss, sin2
+pulse = modulatedGauss
+frequency = 750e12
+amplitude = 5e3
+width = 5e-15
+delayRatio = .5
+
+# Number of points to add at both ends to maxwell
+addlpoints = 250
+
+sigMax = 10e7
+sigM = 4
+kappaMax = 1
+kappaM = 3
+aMax = .01
+aM = 3
+
+[Output]
+fileName = TRIPLEdata.bin
+frames = 250
+outputParameters = 10
+
+# Video? Write "1" = yes or "0" = no:
+video = 1
+
+[PML]
+PSIpml = 15
+PSIsigM = 3
+PSIPMLsigMax = 1.5
+PSIPMLgamma = .3925

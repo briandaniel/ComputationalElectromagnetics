@@ -1,0 +1,36 @@
+# Settings for 1D FDTD simulation.
+
+[Domain]
+xGrid = 100
+yGrid = 100
+zGrid = 400
+
+xLength = 2e-6
+yLength = 2e-6
+zLength = 4e-6
+
+maxTime = 6e-15
+courant = .5
+
+[Output]
+fileName = TRIPLEdata.bin
+frames = 500
+outputParameters = 10
+# Video? Write "1" = yes or "0" = no:
+video = 1
+
+
+[SourceCondition]
+# options: modulatedGauss, sech, CW, gauss, vortex, gaussBeam
+pulse = gaussBeam 
+frequency = 1000e12
+amplitude = 1
+width = 2e-15
+waist = .1e-6
+fLength = 1.5e-6
+zo      = -2e-6
+vortexN = 2
+
+xPosition = 50
+yPosition = 50
+zPosition = 10

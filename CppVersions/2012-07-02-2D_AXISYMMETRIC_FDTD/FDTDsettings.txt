@@ -1,0 +1,133 @@
+# Settings for 1D FDTD simulation.
+
+#----------------- DOMAIN SETTINGS -----------------#
+[Domain]
+radialRange  =			4e-6
+zRange       =			10e-6
+radialGrid   =			150
+zGrid        =			300
+timeDomain   =			120e-15
+harmonicIndex =			1
+
+[FrequencyDomain]
+frequencyNumber =		200
+minimumFrequency =		200e12
+maximumFrequency =		800e12
+initialDetector =		10
+finalDetector =			-100
+
+[InputPulse]
+# options: 
+# modulatedGauss 
+# sech, CW, gauss, 
+# gaussBeamCW, 
+# gaussBeamPulse
+pulse =					gaussBeamPulse
+focusWidth =            2e-6
+zNot =                  -6e-6
+frequency =				350e12
+amplitude =				1.5670e10
+temporalWidth =			20e-15
+position =				25
+
+#--------------- ADDITIONAL SETTINGS ---------------#
+[Output]
+fileName =				FDTDdata.bin
+frames =				100
+outputParameters =		10
+
+[PML]
+cells =					20
+sigmaExponent =			3
+sigmaMultiplier =		8
+kappaMax =				1
+kappaExponent =			3
+aMax =					1
+aExponent =				3
+
+#----------------- MEDIUM SETTINGS -----------------#
+[SimpleMedium]
+mediumSections =		5
+refractiveIndex =		1
+sigma =					0
+
+[DielectricMedium]
+DielectricOn =			off
+radialStart =			0e-6
+radialEnd =				2e-6
+zStart =				3e-6
+zEnd =					9e-6 
+epsRel =				4
+
+[LorentzMedium]
+LorentzOn =				off
+radialStart =			0e-6
+radialEnd =				5e-6
+zStart =				6e-6
+zEnd =					10e-6 
+poleNumber =			1
+epsInf =				2.25
+eps1 =					5
+eps2 =					5
+eps3 =					5
+f1 =					2e14
+f2 =					4e14
+f3 =					6e14
+del1 =					1e14
+del2 =					2e12
+del3 =					3e12
+
+[DrudeMedium]
+DrudeOn =				off
+radialStart =			0e-6
+radialEnd =				5e-6
+zStart =				6e-6
+zEnd =					10e-6 
+poleNumber =			1
+gamma1 =				20e12
+gamma2 =				500e12
+f1 =					300e12
+f2 =					200e12
+
+[DebyeMedium]
+DebyeOn =				off
+radialStart =			0e-6
+radialEnd =				2e-6
+zStart =				3e-6
+zEnd =					9e-6 
+poleNumber =			1
+epsInf =				2
+eps1 =					8
+eps2 =					8
+tau1 =					1e-14
+tau2 =					1e-14
+
+[2LVLAtom]
+2LVLAtomOn =			off
+radialStart =			0e-6
+radialEnd =				2e-6
+zStart =				3e-6
+zEnd =					9e-6 
+tau1 =					100e-12
+tau2 =					350e-15
+Natom =					10e24
+gammaN =				1e-29
+rho30 =					-1        
+minimumFrequency =		270e12
+maximumFrequency =		330e12
+ODEnumber =				3
+sigma =                 0
+eps =                   1
+
+[NonlinearMedium]
+NonlinearOn =			on
+radialStart =			0e-6
+radialEnd =				3.5e-6
+zStart =				3e-6
+zEnd =					9.5e-6 
+alpha =					1
+chi3 =					1.0667e-22
+tau1 =					12.2e-15
+tau2 =					32e-15
+iterations =			2
+
